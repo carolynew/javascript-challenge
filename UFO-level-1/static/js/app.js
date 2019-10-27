@@ -38,4 +38,4 @@ button.on("click", function() {
 
 });
 
-  console.log(filteredData);
+console.log(filteredData);
