@@ -1,26 +1,41 @@
 // from data.js
 const tableData = data;
 
-// YOUR CODE HERE!
+// Create a table to sore the UFO sighting data
 const tbody = d3.select("tbody");
 
 data.forEach((sighting) => {
     console.log(sighting);
   
-    // Step 2:  Use d3 to append one table row `tr` for each weather report object
-    // Don't worry about adding cells or text yet, just try appending the `tr` elements.
+    // Append one table row `tr` for each sighting
     const tr = tbody.append("tr");
   
-    // Step 3:  Use `Object.entries` to console.log each weather report value
+    // Use `Object.entries` to console.log each sighting value
     Object.entries(sighting).forEach(([key, value]) => {
       console.log(`${key}: ${value}`);
   
-      // Step 4: Use d3 to append 1 cell per weather report value (weekday, date, high, low)
-      // Step 5: Use d3 to update each cell's text with
-      // weather report values (weekday, date, high, low)
+    // Add the values into each table cell  
       tr.append("td").text(value);
     });
+});
   
-    // BONUS: Refactor to use Arrow Functions!
-  });
-  
+
+// Select the button
+const button = d3.select("#button");
+
+button.on("click", function() {
+
+  // Select the input element and get the raw HTML node
+  let inputElement = d3.select("#datetime");
+
+  // Get the value property of the input element
+  let inputValue = inputElement.property("value");
+
+  console.log(inputValue);
+  console.log(tableData);
+
+  let filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
+
+});
+
+  console.log(filteredData);
