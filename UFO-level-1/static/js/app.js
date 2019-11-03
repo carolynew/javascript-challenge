@@ -1,7 +1,7 @@
 // from data.js
 const tableData = data;
 
-// Create a table to sore the UFO sighting data
+// Create a table to store the UFO sighting data
 const tbody = d3.select("tbody");
 
 data.forEach((sighting) => {
@@ -36,6 +36,6 @@ button.on("click", function() {
 
   let filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
 
+  console.log(filteredData);
 });
 
-console.log(filteredData);
